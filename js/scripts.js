@@ -1,33 +1,23 @@
-var factorializeNumber = function(number) {
-  var total = number;
-  total = total * (number - 1);
-  numberOutput = number - 1;
-
-  for (index = number; index > 0; index--) {
-    factorializeNumber(numberOutput);
-    return total;
-    alert(total);
+var factorial = function(number) {
+  if (number === 1) {
+    return 1;
   }
-  // else {
-  //   factorializeNumber(number);
-  // }
-}
+    var total = number * factorial(number-1);
+    return total;
+};
+
+// function factorial( n ) {
+//   if ( n === 1 ) {
+//     return 1;
+//   }
+//   return n * factorial( n - 1 );
+// };
 
 $(document).ready(function(event) {
   $("#numberBlanks").submit(function(event) {
     var numberToFactorial = parseInt($("input#number1").val());
-    // var factorialArray = [];
-    // var total = 1;
-    // for (var index = numberToFactorial; index > 0; index--) {
-    //   factorialArray.push(index);
-    // }
-    // // alert(factorialArray)
-    // for (var index2 = 0; index2 < factorialArray.length; index2++) {
-    //   var factorialMuliply = factorialArray[index2];
-    //   // alert(factorialMuliply);
-    //   total = total * factorialMuliply;
 
-    $("#number1Output").text(factorializeNumber(numberToFactorial));
+    $("#number1Output").text(factorial(numberToFactorial));
     event.preventDefault();
   });
 });
